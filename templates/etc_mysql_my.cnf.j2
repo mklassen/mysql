@@ -40,9 +40,12 @@ myisam-recover          = {{ mysql_myisam_recover }}
 thread_concurrency      = {{ mysql_thread_concurrency }}
 {% endif %}
 
+{% if not (ansible_distribution_major_version|int >= 20) %}
+# ** Not compatible with >= 8.0.3
 # ** Query Cache Configuration
 query_cache_limit       = {{ mysql_query_cache_limit }}
 query_cache_size        = {{ mysql_query_cache_size }}
+{% endif %}
 
 # ** Logging and Replication
 #general_log_file        = /var/log/mysql/mysql.log
