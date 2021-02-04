@@ -47,4 +47,4 @@ mysql_users: []
 mysql_packages:
   - mysql-server
   - mysql-client
-  - '{% if (ansible_distribution_major_version|int >= 20 %}python3-mysqldb{% else %}python-mysqldb{% endif %}'
+  - '{% if ansible_distribution_major_version|int >= 20 %}python3-mysqldb{% else %}python-mysqldb{% endif %}'
